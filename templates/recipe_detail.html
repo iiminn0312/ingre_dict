@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ recipe.name }} 詳細</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>{{ recipe.name }} の作り方</h1>
+        </header>
+
+        <div class="recipe-description">
+            <p><strong>説明:</strong> {{ recipe.description }}</p>
+        </div>
+
+        <h2>使用食材:</h2>
+        <ul class="ingredient-list">
+            {% for ingredient in recipe.ingredients %}
+            <li>{{ ingredient }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>作り方:</h3>
+        <ol class="steps-list">
+            {% for step in recipe.steps %}
+            <li>{{ step }}</li>
+            {% endfor %}
+        </ol>
+
+        <div class="btn-container">
+            <button class="btn" onclick="window.history.back()">戻る</button>
+            <a href="/" class="btn">ホーム</a>
+        </div>
+    </div>
+</body>
+</html>

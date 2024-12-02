@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国料理食材辞書</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>中国料理食材辞書</h1>
+        </header>
+
+        <form action="/" method="get" class="search-form">
+            <input type="text" name="ingredient" placeholder="食材名を入力..." value="{{ request.args.get('ingredient', '') }}" />
+            <button type="submit">検索</button>
+        </form>
+
+        {% if error %}
+        <div class="error-message">
+            <p>{{ error }}</p>
+            {% if suggestions %}
+            <h3>もしかして：</h3>
+            <ul>
+                {% for suggestion in suggestions %}
+                <li><a href="/?ingredient={{ suggestion }}">{{ suggestion }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        {% elif result %}
+        <div class="result">
+            <h2>{{ result.title }} の情報</h2>
+            <p>{{ result.description }}</p>
+            {% if result.image_url %}
+            <img src="{{ result.image_url }}" alt="{{ result.title }}" class="ingredient-image">
+            {% endif %}
+
+            <h3>おすすめレシピ:</h3>
+            {% if no_recipes %}
+                <p style="color: red; font-size: 0.8rem;">レシピデータベースは現在作成中です</p>  <!-- Message when no recipes are found -->
+            {% else %}
+                <ul class="recipe-list">
+                    {% for recipe in result.recipes %}
+                    <li>
+                        <a href="/recipe/{{ recipe.id }}" class="recipe-title">{{ recipe.title }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

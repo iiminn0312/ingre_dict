@@ -1,0 +1,188 @@
+/* basic style */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background-color: #f0f0f0; /* 背景颜色 */
+    color: #333; /* 文本颜色 */
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #E6F7E6; /* 浅绿色背景 */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 软阴影 */
+}
+
+/* title */
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    color: #555;
+    margin-top: 20px;
+}
+
+/* search */
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.search-form input {
+    padding: 12px;
+    font-size: 16px;
+    width: 75%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+    background-color: #fafafa;
+}
+
+.search-form button {
+    padding: 12px 20px;
+    background-color: #8BC34A; /* 清新的绿色 */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-form button:hover {
+    background-color: #7CA32F; /* 按钮悬停时变暗 */
+}
+
+/* 错误信息 */
+.error-message {
+    background-color: #FFEBEE; /* 错误信息的柔和红色背景 */
+    color: #D32F2F; /* 红色文字 */
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.error-message h3 {
+    margin-top: 10px;
+}
+
+.error-message a {
+    color: #1976D2; /* 蓝色链接 */
+    text-decoration: none;
+}
+
+.error-message a:hover {
+    text-decoration: underline;
+}
+
+/* searching result */
+.result {
+    text-align: center;
+}
+
+/* Style for the message when no recipes are found */
+.no-recipes-message {
+    color: red;
+    font-size: 0.8rem;
+}
+
+/* recipe list */
+.recipe-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.recipe-list li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.recipe-title {
+    font-size: 18px;
+    color: #333;
+    text-decoration: underline; /* 添加下划线 */
+    margin-right: 10px;
+}
+
+.recipe-title:hover {
+    color: #8BC34A; /* 悬停时绿色 */
+}
+
+/* 推荐食谱与其他部分间距调整 */
+h3 {
+    margin-top: 30px; /* 增加“おすすめレシピ”与上方部分的间距 */
+    margin-bottom: 15px; /* 控制推荐食谱标题和列表的距离 */
+}
+
+/* ingredient图片与食谱列表间距 */
+.ingredient-image {
+    margin-bottom: 30px; /* 增加ingredient图片与下方部分的距离 */
+}
+
+/* ingredient和步骤列表样式 */
+.ingredient-list, .steps-list {
+    margin-top: 20px;
+    padding-left: 20px; /* 让列表缩进 */
+}
+
+.ingredient-list li, .steps-list li {
+    margin-bottom: 10px;
+}
+
+/* 按钮样式 */
+.search-form button,
+.btn {
+    padding: 10px 20px;
+    background-color: #8BC34A; /* 主色调绿色 */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none; /* 防止链接有下划线 */
+    display: inline-block; /* 让 <a> 标签像按钮一样显示 */
+    text-align: center;
+}
+
+.search-form button:hover,
+.btn:hover {
+    background-color: #7CA32F; /* 按钮悬停时颜色稍微变暗 */
+}
+
+/* 按钮容器样式 */
+.btn-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    .search-form input {
+        width: 80%;
+    }
+
+    .recipe-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .recipe-image {
+        width: 80px;
+        height: 80px;
+    }
+}
